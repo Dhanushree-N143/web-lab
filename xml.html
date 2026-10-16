@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XML Student Table</title>
+</head>
+<body>
+
+<h2>Student Records</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+    </tr>
+    <tbody id="table"></tbody>
+</table>
+
+<script>
+let xml = `
+<students>
+    <student>
+        <id>1</id>
+        <name>Arun</name>
+        <course>IT</course>
+    </student>
+    <student>
+        <id>2</id>
+        <name>Priya</name>
+        <course>CSE</course>
+    </student>
+    <student>
+        <id>3</id>
+        <name>Rahul</name>
+        <course>ECE</course>
+    </student>
+</students>`;
+let doc = new DOMParser().parseFromString(xml, "text/html");
+let students=doc.getElementsByTagName("student");
+let table="";
+for(let s of students){
+    table+="<tr>";
+        table+="<td>s.getElementsByTagName('id').textContent</td>";
+        table+="<td>s.getElementsByTagName('name').textContent</td>";
+        table+="<td>s.getElementsByTagName('course').textContent</td>";
+    table+="</tr>";
+}
+document.getElementById("table").innerHTML=table;
+</script>
+
+</body>
+</html>
